@@ -156,13 +156,14 @@ public class Inicial extends javax.swing.JFrame {
             }else{
                 try {
                     
-                    metodos.EscalaCinza(lista, execucao, destino);
+                    lista=metodos.EscalaCinza(lista, execucao, destino);
                     jTextArea1.setText(jTextArea1.getText()+"\nTransformando para tons de cinza");
-                    metodos.Limiarizacao(lista, execucao, destino);
+                    lista=metodos.Limiarizacao(lista, execucao, destino);
                     jTextArea1.setText(jTextArea1.getText()+"\nLimiarizando");
-                    execucao++;
-                    
+                    lista=metodos.Mediana(lista, execucao, destino);
+                    jTextArea1.setText(jTextArea1.getText()+"\nCalculando Mediana");
                     metodos.Recortar(lista,execucao,destino,metodos.capturarRecorte(metodos.varreduraLinha(lista, execucao, destino), metodos.varreduraColuna(lista, execucao, destino)));
+                    execucao++;
                 } catch (IOException ex) {
                     Logger.getLogger(Inicial.class.getName()).log(Level.SEVERE, null, ex);
                 }
